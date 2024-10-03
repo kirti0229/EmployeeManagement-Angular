@@ -1,0 +1,67 @@
+<section class="sign-in">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+          <div class="loginform-container">
+            <img class="ntspl-logo" src="https://demo2.ntspl.co.in/assets/images/ntspl_logo.png">
+            <form novalidate="" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+              <div class="text">
+                <h4>Welcome to Meeting Plus</h4>
+                <p>Enter your email id to log in to your account</p>
+              </div>
+              
+              <div class="form-group">
+                <div class="email-group">
+                  <label class="mb-1">Email <span>*</span></label>
+                  <div class="inner-group">
+                    <input type="email" formControlName="email" placeholder="Type Your Email">
+                  </div>
+                </div>
+              </div>
+            
+              <div *ngIf="showPasswordField" class="form-group">
+                <label class="mb-1">Password <span>*</span></label>
+                <div class="inner-group">
+                  <input type="password" formControlName="password" placeholder="Type Your Password">
+                  <div *ngIf="password?.invalid && (password?.dirty || password?.touched)" class="text-danger">
+                    <div *ngIf="password?.errors?.['required']">Password is required.</div>
+                    <div *ngIf="password?.errors?.['minlength']">Password must be at least 6 characters long.</div>
+                  </div>
+                </div>
+              </div>
+              
+            
+              <a (click)="togglePasswordField()">
+                <button type="button" class="signin-btn2">Sign In With Password</button>
+              </a>
+              
+              <div class="or"> or </div>
+              <a routerLink="otp-verify" href="/otp-verify">
+                <button class="signin-btn1">Send OTP</button>
+              </a>
+            
+              <div class="set-pwd">
+                <a routerLink="reset-password" href="/reset-password">Set Password</a>
+              </div>
+            </form>
+            
+          </div>
+        </div>
+        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+          <div class="blue-box-cont">
+            <div class="blue-box">
+              <div class="slider-cont">
+                <h2>Meeting Plus</h2>
+                <h6>Where Meeting Become Meaningful</h6>
+                <div class="white-box">
+                  <img alt="" src="https://demo2.ntspl.co.in/assets/images/meeting.png">
+                </div>
+              </div>
+            </div>
+            <p class="copyright">© 2024 NTSPL All Rights Reserved</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
